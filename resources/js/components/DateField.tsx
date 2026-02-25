@@ -28,7 +28,7 @@ export default function DateField({ title, placeholder, value, error, onChange }
                         data-empty={!value}
                         className="justify-between text-left font-normal data-[empty=true]:text-muted-foreground"
                     >
-                        {value ? format(value, 'YYYY-MM-hh') : <span>{placeholder ?? title}</span>}
+                        {value ? format(value, 'yyyy-MM-dd') : <span>{placeholder ?? title}</span>}
                         <ChevronDownIcon />
                     </Button>
                     {error && <ErrorField message={error} />}
