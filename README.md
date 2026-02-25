@@ -29,7 +29,7 @@ Create a simple app to manage employees:
     - copy env `cp .env.example .env`
     - install dependencies `composer install`
     - generate key `php artisan key:generate`
-    - change db env value `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, `DB_SSLMODE`, `DB_URL`
+    - change db env value `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, `DB_SSLMODE`, `DB_URL`
     - run migration and seeder (if any) `php artisan migrate --seed`
     - run backend `php artisan serve`
 
