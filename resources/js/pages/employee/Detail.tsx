@@ -1,12 +1,12 @@
-import { Link, router, useForm } from '@inertiajs/react';
+import { router, useForm } from '@inertiajs/react';
 import { format } from 'date-fns';
 import type { SubmitEvent } from 'react';
 import { AlertDialog } from '@/components/AlertDialog';
 import DateField from '@/components/DateField';
 import Layout from '@/components/Layout';
+import PageTitle from '@/components/PageTitle';
 import SelectField from '@/components/SelectField';
 import TextField from '@/components/TextField';
-import Title from '@/components/Title';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { FieldGroup } from '@/components/ui/field';
@@ -35,14 +35,8 @@ export default function Detail({ employee }: Props) {
 
     return (
         <Layout>
-            <div className="mb-8 flex flex-row items-center justify-between">
-                <Title size="large" className="line-clamp-2">
-                    Edit Employee: #{employee.id}-{employee.name}
-                </Title>
-                <Button asChild>
-                    <Link href="/employee">Cancel</Link>
-                </Button>
-            </div>
+            <PageTitle title={`Edit Employee: #${employee.id}-${employee.name}`} buttonText="Cancel" buttonUrl="/employee" />
+
             <div>
                 <form onSubmit={onSubmitForm}>
                     <Card>

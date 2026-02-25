@@ -1,10 +1,10 @@
 import { Link } from '@inertiajs/react';
+import { format } from 'date-fns';
 import Layout from '@/components/Layout';
-import Title from '@/components/Title';
+import PageTitle from '@/components/PageTitle';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { format } from 'date-fns';
 
 type Props = {
     employees: Employee[];
@@ -13,12 +13,8 @@ type Props = {
 export default function Index({ employees }: Props) {
     return (
         <Layout>
-            <div className="mb-8 flex flex-row items-center justify-between">
-                <Title size="large">List Employee</Title>
-                <Button asChild>
-                    <Link href="/employee/create">Create Employee</Link>
-                </Button>
-            </div>
+            <PageTitle title="List Employee" buttonText="Create Employee" buttonUrl="/employee/create" />
+
             <div>
                 <Table>
                     <TableCaption>All list of employee</TableCaption>
