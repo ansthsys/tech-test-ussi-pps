@@ -41,7 +41,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return Inertia::render("employee/Detail", compact("employee"));
     }
 
     /**
@@ -49,7 +49,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        // disabled on route
     }
 
     /**
@@ -57,7 +57,8 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+        $validated = $request->all();
+        $employee->update($validated);
     }
 
     /**
@@ -65,6 +66,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return to_route('employee.index');
     }
 }

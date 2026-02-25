@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enum\EmployeePositionEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateEmployeeRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class UpdateEmployeeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,20 @@ class UpdateEmployeeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:256'],
+            'position' => ['required', 'string', Rule::enum(EmployeePositionEnum::class)],
+            'start_date' => ['required', 'date', Rule::date()->beforeOrEqual(today())],
+            'status' => ['required', 'boolean']
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Name',
+            'position' => 'Position',
+            'start_date' => 'Start Date',
+            'Status' => 'Status',
         ];
     }
 }
