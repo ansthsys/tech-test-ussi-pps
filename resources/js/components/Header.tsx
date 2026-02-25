@@ -12,7 +12,7 @@ export default function Header() {
                     alt="Logo"
                     className="h-14"
                 />
-                <div className="flex flex-col">
+                <div className="hidden md:flex flex-col">
                     <h1 className="text-lg font-bold">Tech Test</h1>
                     <p className="text-base font-medium">PT USSI Pinbuk Prima Software</p>
                 </div>
