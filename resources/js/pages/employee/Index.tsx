@@ -3,6 +3,8 @@ import Layout from '@/components/Layout';
 import Title from '@/components/Title';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { format } from 'date-fns';
 
 type Props = {
     employees: Employee[];
@@ -36,10 +38,18 @@ export default function Index({ employees }: Props) {
                                 <TableRow key={e.id}>
                                     <TableCell>{e.id}</TableCell>
                                     <TableCell>{e.name}</TableCell>
-                                    <TableCell>{e.position}</TableCell>
-                                    <TableCell>{e.start_date}</TableCell>
-                                    <TableCell>{e.status}</TableCell>
-                                    <TableCell>"action"</TableCell>
+                                    <TableCell>
+                                        <Badge variant={'default'}>{e.position}</Badge>
+                                    </TableCell>
+                                    <TableCell>{format(new Date(e.start_date), 'EEEE, dd MM yyyy')}</TableCell>
+                                    <TableCell>
+                                        {e.status ? <Badge variant={'outline'}>Active</Badge> : <Badge variant={'destructive'}>Inactive</Badge>}
+                                    </TableCell>
+                                    <TableCell>
+                                        <Button variant={'outline'} asChild>
+                                            <Link href={`/employee/${e.id}`}>Show</Link>
+                                        </Button>
+                                    </TableCell>
                                 </TableRow>
                             ))}
 
