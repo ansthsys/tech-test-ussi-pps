@@ -21,7 +21,10 @@ export default function Header() {
             <nav className="flex flex-row items-center">
                 <Link
                     href="/employee"
-                    className={cn(['px-3 py-1 font-medium decoration-transparent', url.startsWith('/employee') && 'decoration-blue-500'])}
+                    className={cn([
+                        'px-3 py-1 font-medium underline decoration-3 underline-offset-12',
+                        url.startsWith('/employee') ? 'decoration-blue-500' : 'decoration-transparent',
+                    ])}
                 >
                     Employee
                 </Link>
